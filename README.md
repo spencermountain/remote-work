@@ -1,9 +1,30 @@
-# remote-work
-a tool to crawl and download files from an open-directory.
+<div align="center">
+  <img height="15px" src="https://user-images.githubusercontent.com/399657/68221862-17ceb980-ffb8-11e9-87d4-7b30b6488f16.png"/>
+  <div><b>remote-work</b></div>
+  <img src="https://user-images.githubusercontent.com/399657/68222691-6597f180-ffb9-11e9-8a32-a7f38aa8bded.png"/>
+  <div>crawl and download files from an open-directory</div>
+  <div><code>npm install remote-work</code></div>
+  <div align="center">
+    <sub>
+      by
+      <a href="https://spencermounta.in/">Spencer Kelly</a> 
+    </sub>
+  </div>
+  <img height="22px" src="https://user-images.githubusercontent.com/399657/68221862-17ceb980-ffb8-11e9-87d4-7b30b6488f16.png"/>
+</div>
 
-this is a **work in progress!**
+<div align="center">
+  <div>
+    <a href="https://npmjs.org/package/remote-work">
+    <img src="https://img.shields.io/npm/v/remote-work.svg?style=flat-square" />
+  </a>
+**work in progress!**
+</div>
 
----
+<!-- spacer -->
+<img height="25px" src="https://user-images.githubusercontent.com/399657/68221862-17ceb980-ffb8-11e9-87d4-7b30b6488f16.png"/>
+
+
 Sometimes you'll open a webpage, and it will look like this:
 ![2023-06-20-2trmhOpU](https://github.com/spencermountain/remote-work/assets/399657/0849ff32-d9f6-4776-a7d3-dd02ba6bc1c5)
 
@@ -17,10 +38,10 @@ npx remote-work http://us.archive.ubuntu.com/ubuntu/pool/multiverse/y
 (you'll need to have [nodejs installed](https://nodejs.dev/en/download/))
 
 ### Features
-* **fast** - downloads files 3 at a time, by default
+* **async** - downloads files 3 at a time, by default
 * **configurable** - download only the files you'd like using a glob
-* **resumable** - gets files *[depth-first](https://www.codecademy.com/article/tree-traversal)*
-* **efficient** - don't re-download files that you already have
+* **stoppable** - gets files *[depth-first](https://www.codecademy.com/article/tree-traversal)*
+* **resumable** - don't re-download files that you already have
 
 ### Node API
 you can also use this library in a script
@@ -38,6 +59,8 @@ await remoteWork('http://us.archive.ubuntu.com/ubuntu/pool/multiverse/y', opts)
 ```
 
 Please be considerate when downloading files from a remote server.
+
+---
 
 ### See also
 * [wget-wizard](https://www.whatismybrowser.com/developers/tools/wget-wizard/) - do it all w/ a CLI script

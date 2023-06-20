@@ -4,38 +4,34 @@
   <img src="https://user-images.githubusercontent.com/399657/68222691-6597f180-ffb9-11e9-8a32-a7f38aa8bded.png"/>
   <div>crawl and download files from an open-directory</div>
   <div><code>npm install remote-work</code></div>
-  <div align="center">
-    <sub>
-      by
-      <a href="https://spencermounta.in/">Spencer Kelly</a> 
-    </sub>
-  </div>
   <img height="22px" src="https://user-images.githubusercontent.com/399657/68221862-17ceb980-ffb8-11e9-87d4-7b30b6488f16.png"/>
 </div>
 
 <div align="center">
   <div>
     <a href="https://npmjs.org/package/remote-work">
-    <img src="https://img.shields.io/npm/v/remote-work.svg?style=flat-square" />
-  </a>
+      <img src="https://img.shields.io/npm/v/remote-work.svg?style=flat-square" />
+    </a>
+  </div>
 **work in progress!**
 </div>
 
 <!-- spacer -->
 <img height="25px" src="https://user-images.githubusercontent.com/399657/68221862-17ceb980-ffb8-11e9-87d4-7b30b6488f16.png"/>
-
+<hr/>
 
 Sometimes you'll open a webpage, and it will look like this:
 ![2023-06-20-2trmhOpU](https://github.com/spencermountain/remote-work/assets/399657/0849ff32-d9f6-4776-a7d3-dd02ba6bc1c5)
 
-This is called an `open directory`, or sometimes an `autoindexer`. It's a server that's configured to show you all its files, which is nice. It was more common in earlier days.
+This is called an **open directory**, or sometimes an **autoindexer**. It's a server that's configured to show you all its files, which is nice. It was more common in earlier days.
 
-This is a tool to download the all files from a page like this.
+This is a tool to download the all files from a page like this, from the command-line.
 
+### Install
 ```
 npx remote-work http://us.archive.ubuntu.com/ubuntu/pool/multiverse/y
 ```
-(you'll need to have [nodejs installed](https://nodejs.dev/en/download/))
+(you'll need to have [NodeJS installed](https://nodejs.dev/en/download/))
 
 ### Features
 * **async** - downloads files 3 at a time, by default

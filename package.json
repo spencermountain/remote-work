@@ -1,0 +1,27 @@
+{
+  "name": "remote-work",
+  "version": "0.0.1",
+  "description": "a tool to download files from an open-directory",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "node ./scratch.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spencermountain/remote-work.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spencermountain/remote-work/issues"
+  },
+  "homepage": "https://github.com/spencermountain/remote-work#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "minimatch": "^9.0.1",
+    "minimist": "^1.2.8",
+    "node-fetch": "^3.3.1"
+  }
+}

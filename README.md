@@ -26,6 +26,10 @@ This is called an **open directory**, or sometimes an **autoindexer**.
 
 It's a server that's configured to show you all its files, which is nice. It used to be more common.
 
+
+<!-- spacer -->
+<img height="35px" src="https://user-images.githubusercontent.com/399657/68221862-17ceb980-ffb8-11e9-87d4-7b30b6488f16.png"/>
+
 This is a tool to download the all files from a page like this, from the command-line.
 
 
@@ -36,9 +40,13 @@ npx remote-work http://us.archive.ubuntu.com/ubuntu/pool/multiverse/y
 
 ### Features
 * **async** - downloads files 3 at a time, by default
-* **configurable** - download only the files you'd like using a glob
+* **configurable** - download only the files you'd like, using *a [glob](https://www.digitalocean.com/community/tools/glob)*
 * **stoppable** - gets files *[depth-first](https://www.codecademy.com/article/tree-traversal)*
 * **resumable** - don't re-download files that you already have
+
+<!-- spacer -->
+<img height="35px" src="https://user-images.githubusercontent.com/399657/68221862-17ceb980-ffb8-11e9-87d4-7b30b6488f16.png"/>
+
 
 ### Node API
 you can also use this library in a script

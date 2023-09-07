@@ -41,7 +41,7 @@ const getPage = async function (url, dir) {
 }
 
 const getFile = async function (obj) {
-  let { local, dir, href } = res.files[i]
+  let { local, dir, href } = obj
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir)
     console.log('making: ' + dir)

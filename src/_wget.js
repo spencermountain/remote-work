@@ -2,9 +2,10 @@ import fetch from 'node-fetch'
 import fs from 'fs'
 
 function print(txt) {
-  process.stdout.clearLine()
-  process.stdout.cursorTo(0)
-  process.stdout.write(txt)
+  console.log(txt)
+  // process.stdout.clearLine()
+  // process.stdout.cursorTo(0)
+  // process.stdout.write(txt)
 }
 
 const wget = async function (url, path) {

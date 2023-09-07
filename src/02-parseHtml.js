@@ -1,15 +1,18 @@
-import * as cheerio from 'cheerio';
+import * as cheerio from 'cheerio'
+const isDir = /\/$/
+const isFile = /\..{2,4}$/
 
 const parseNginx = function (html) {
-  var $ = cheerio.load(html);
+  var $ = cheerio.load(html)
   let res = null
   return res
 }
 
 // see example at http://us.archive.ubuntu.com/ubuntu/pool/multiverse/y/
 const parseApache = function (html) {
-  var $ = cheerio.load(html);
+  var $ = cheerio.load(html)
   let files = []
+  let dirs = []
   let rows = $('body table:first tbody tr')
   rows.each(function () {
     let row = $(this)
@@ -30,9 +33,14 @@ const parseApache = function (html) {
     if (name === 'Parent Directory') {
       return
     }
-    files.push({ href, name })
+    // file or directory
+    if (isDir.test(href) && !isFile.test(href)) {
+      dirs.push({ href, name })
+    } else {
+      files.push({ href, name })
+    }
   })
-  return files
+  return { files, dirs }
 }
 
 export default { nginx: parseNginx, apache: parseApache }

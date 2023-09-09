@@ -3,9 +3,22 @@ const isDir = /\/$/
 const isFile = /\..{2,4}$/
 
 const parseNginx = function (html) {
+  let files = []
+  let dirs = []
   var $ = cheerio.load(html)
-  let res = null
-  return res
+  let rows = $('body pre a')
+  rows.each(function () {
+    let link = $(this)
+    let href = link.attr('href')
+    let name = link.text()
+    if (isDir.test(href) && !isFile.test(href)) {
+      dirs.push({ href, name })
+    } else {
+      files.push({ href, name })
+    }
+  })
+  files = files.filter(o => o.href !== '../')
+  return { files, dirs }
 }
 
 // see example at http://us.archive.ubuntu.com/ubuntu/pool/multiverse/y/

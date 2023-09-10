@@ -1,9 +1,10 @@
 {
   "name": "remote-work",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a tool to download files from an open-directory",
-  "main": "index.js",
+  "main": "./src/index.js",
   "type": "module",
+  "bin": "./cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "node ./scratch.js"

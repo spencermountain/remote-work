@@ -19,6 +19,7 @@ const alias = {
 
 let opts = minimist(process.argv.slice(2), { alias: alias })
 let url = opts._.join(' ').trim()
+let dir = './'
 
 if (!url || opts.help) {
   help()
@@ -28,6 +29,6 @@ if (!url || opts.help) {
 opts = Object.assign({}, defaults, opts)
 
 
-let res = await remoteWork(url, opts)
+let res = await remoteWork(url, dir, opts)
 console.log(res)
 console.log('done')

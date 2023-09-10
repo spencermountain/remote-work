@@ -9,33 +9,38 @@ import path from 'path'
 import fs from 'fs'
 
 const getPage = async function (url, dir) {
-  let req = await fetch(url)
-  let html = await req.text()
   let res = { files: [], dirs: [] }
+  try {
+    let req = await fetch(url)
+    let html = await req.text()
 
-  // is it a know open-directory page?
-  let server = knownServer(req)
-  if (!server) {
-    console.error(`remote-work error: '${url}' is not a known open-directory format.`)
+    // is it a know open-directory page?
+    let server = knownServer(req)
+    if (!server) {
+      console.error(`remote-work error: '${url}' is not a known open-directory format.`)
+      return res
+    }
+
+    // parse the files from the html
+    res = parsers[server](html)
+    if (!res.files.length && !res.dirs.length) {
+      console.error(`remote-work error: Found no files to download at '${url}'`)
+      return res
+    }
+    // make them absolute links
+    res.files.forEach((obj) => {
+      obj.href = new URL(obj.href, url).href
+      obj.local = path.join(dir, obj.name)
+      obj.dir = dir
+    })
+    res.dirs.forEach((obj) => {
+      obj.href = new URL(obj.href, url).href
+      obj.local = path.join(dir, obj.name)
+    })
+  } catch (e) {
+    console.log(e)
     return res
   }
-
-  // parse the files from the html
-  res = parsers[server](html)
-  if (!res.files.length && !res.dirs.length) {
-    console.error(`remote-work error: Found no files to download at '${url}'`)
-    return res
-  }
-  // make them absolute links
-  res.files.forEach((obj) => {
-    obj.href = new URL(obj.href, url).href
-    obj.local = path.join(dir, obj.name)
-    obj.dir = dir
-  })
-  res.dirs.forEach((obj) => {
-    obj.href = new URL(obj.href, url).href
-    obj.local = path.join(dir, obj.name)
-  })
   // filter down any files
   return res
 }

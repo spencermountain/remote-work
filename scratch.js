@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import remote from './src/index.js'
 
 const out = '/Users/spencer/Desktop/out'

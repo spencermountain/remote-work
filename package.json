@@ -4,7 +4,9 @@
   "description": "a tool to download files from an open-directory",
   "main": "./src/index.js",
   "type": "module",
-  "bin": "./cli.js",
+  "bin": {
+    "remote-work": "./cli.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "node ./scratch.js"

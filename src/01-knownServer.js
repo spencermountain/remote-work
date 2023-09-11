@@ -1,4 +1,4 @@
-const knownServer = function (req, doc) {
+const knownServer = function (req) {
   let server = req.headers.get('server')
   if (server) {
     if (server.match(/nginx/i)) {

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import fetch from 'node-fetch'
 import fs from 'fs'
 
@@ -21,7 +22,7 @@ const wget = async function (url, path) {
     res.body.pipe(fileStream)
     let timer = setInterval(() => print(Math.floor((done / total) * 100) + '%'), 1000)
     res.body.on('data', (chunk) => (done += chunk.length))
-    res.body.on('error', () => {
+    res.body.on('error', (error) => {
       clearInterval(timer)
       console.log(error)
       reject()

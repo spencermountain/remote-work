@@ -57,18 +57,26 @@ const getFile = async function (obj) {
 // downloan any files
 const getFiles = async function (res) {
   console.log(`getting ${res.files.length} files`)
-  await slow.walk(res.files, getFile)
+  try {
+    await slow.walk(res.files, getFile)
+  } catch (e) {
+    console.log(e)
+  }
 }
 
 const getDirs = async function (res) {
   console.log(`getting ${res.dirs.length} dirs`)
   for (let i = 0; i < res.dirs.length; i += 1) {
-    let { href, local } = res.dirs[i]
-    // add new data to res
-    let r = await getPage(href, local)
-    console.log(`+ ${r.dirs.length} dirs, ${r.files.length} files`)
-    res.files = res.files.concat(r.files)
-    res.dirs = res.dirs.concat(r.dirs)
+    try {
+      // add new data to res
+      let { href, local } = res.dirs[i]
+      let r = await getPage(href, local)
+      console.log(`+ ${r.dirs.length} dirs, ${r.files.length} files`)
+      res.files = res.files.concat(r.files)
+      res.dirs = res.dirs.concat(r.dirs)
+    } catch (e) {
+      console.log(e)
+    }
   }
   return res
 }
